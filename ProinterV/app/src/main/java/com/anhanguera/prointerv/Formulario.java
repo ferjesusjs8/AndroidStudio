@@ -1,5 +1,6 @@
 package com.anhanguera.prointerv;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,8 @@ public class Formulario extends AppCompatActivity {
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Formulario.this, "Dados salvos com sucesso!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Formulario.this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
