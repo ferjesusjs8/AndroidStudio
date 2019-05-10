@@ -2,6 +2,9 @@ package com.anhanguera.prointerv;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class Formulario extends AppCompatActivity {
 
@@ -9,5 +12,14 @@ public class Formulario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
+
+        Button botaoSalvar = findViewById(R.id.formulario_salvar);
+
+        botaoSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Formulario.this, "Dados salvos com sucesso!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
