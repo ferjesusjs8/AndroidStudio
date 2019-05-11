@@ -8,17 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.anhanguera.prointerv.dao.AlunoDAO;
+import com.anhanguera.prointerv.modelo.Aluno;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        String[] alunos = {"Daniel", "Ronaldo", "Jeferson", "Felipe"};
-        ListView listaAluno = (ListView) findViewById(R.id.lista_alunos);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos);
-        listaAluno.setAdapter(adapter);
 
         Button novoAluno = findViewById(R.id.novo_aluno);
         novoAluno.setOnClickListener(new View.OnClickListener() {
@@ -28,5 +28,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentNovoAluno);
             }
         });
+    }
+
+    private void carregaLista() {
+        AlunoDAO alunoDAO = new AlunoDAO(this);
+        List<Aluno> alunos = alunoDAO.GetAlunos();
+        alunoDAO.close();
+
+        ListView listaAluno = findViewById(R.id.lista_alunos);
+        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
+        listaAluno.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        carregaLista();
+        super.onResume();
     }
 }

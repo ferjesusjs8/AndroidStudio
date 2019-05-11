@@ -10,12 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.anhanguera.prointerv.dao.AlunoDAO;
+import com.anhanguera.prointerv.modelo.Aluno;
+
 public class Formulario extends AppCompatActivity {
+    private FormularioActivityHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
+        helper = new FormularioActivityHelper(this);
     }
 
     @Override
@@ -30,7 +35,13 @@ public class Formulario extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_formulario_ok:
-                Toast.makeText(Formulario.this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                Aluno aluno = helper.GetAluno();
+
+                AlunoDAO alunoDAO = new AlunoDAO(this);
+                alunoDAO.Insere(aluno);
+                alunoDAO.close();
+
+                Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " salvo com sucesso!", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
         }
