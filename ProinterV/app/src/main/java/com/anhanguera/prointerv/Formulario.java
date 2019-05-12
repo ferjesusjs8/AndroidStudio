@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.anhanguera.prointerv.dao.AlunoDAO;
 import com.anhanguera.prointerv.modelo.Aluno;
 
 public class Formulario extends AppCompatActivity {
+
     private FormularioActivityHelper helper;
 
     @Override
@@ -21,6 +20,12 @@ public class Formulario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
         helper = new FormularioActivityHelper(this);
+
+        Intent intent = getIntent();
+        Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
+        if (aluno != null){
+            helper.PreencherFormulario(aluno);
+        }
     }
 
     @Override
@@ -38,10 +43,17 @@ public class Formulario extends AppCompatActivity {
                 Aluno aluno = helper.GetAluno();
 
                 AlunoDAO alunoDAO = new AlunoDAO(this);
-                alunoDAO.Insere(aluno);
+
+                if (aluno.getId() != null){
+                    alunoDAO.EditAluno(aluno);
+                    Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " editado com sucesso!", Toast.LENGTH_SHORT).show();
+                } else {
+                    alunoDAO.Insere(aluno);
+                    Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                }
+
                 alunoDAO.close();
 
-                Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " salvo com sucesso!", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
         }

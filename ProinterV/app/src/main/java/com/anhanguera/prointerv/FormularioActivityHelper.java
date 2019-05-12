@@ -12,6 +12,7 @@ public class FormularioActivityHelper {
     private EditText telefone;
     private EditText endereco;
     private EditText nome;
+    private Aluno aluno;
 
     public FormularioActivityHelper(Formulario activity) {
         nome = activity.findViewById(R.id.formulario_nome);
@@ -19,10 +20,10 @@ public class FormularioActivityHelper {
         telefone = activity.findViewById(R.id.formulario_telefone);
         site = activity.findViewById(R.id.formulario_site);
         rating = activity.findViewById(R.id.formulario_ratingBar);
+        aluno = new Aluno();
     }
 
     public Aluno GetAluno(){
-        Aluno aluno = new Aluno();
         aluno.setNome(nome.getText().toString());
         aluno.setEndereco(endereco.getText().toString());
         aluno.setTelefone(telefone.getText().toString());
@@ -32,4 +33,12 @@ public class FormularioActivityHelper {
     }
 
 
+    public void PreencherFormulario(Aluno aluno) {
+        nome.setText(aluno.getNome());
+        endereco.setText(aluno.getEndereco());
+        telefone.setText(aluno.getTelefone());
+        site.setText(aluno.getSite());
+        rating.setProgress(aluno.getNota().intValue());
+        this.aluno = aluno;
+    }
 }

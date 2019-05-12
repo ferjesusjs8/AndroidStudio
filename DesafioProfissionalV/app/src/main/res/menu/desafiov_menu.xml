@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/formularios"
+        android:icon="@drawable/ic_add_menu"
+        android:title="formularios"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/forumlario_Pessoa"
+                android:title="Formulário de Pessoas"
+                />
+            <item
+                android:id="@+id/forumlario_Servico"
+                android:title="Formulário de Serviços"/>
+
+            <item
+            android:id="@+id/forumlario_Obra"
+            android:title="Formulário de Obras"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/searchs"
+        android:icon="@drawable/ic_search_menu"
+        android:title="searchs"
+        app:showAsAction="ifRoom"></item>
+
+</menu>
