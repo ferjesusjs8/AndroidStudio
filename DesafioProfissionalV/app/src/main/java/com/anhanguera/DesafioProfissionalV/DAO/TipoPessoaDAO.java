@@ -20,7 +20,7 @@ public class TipoPessoaDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE TipoPessoa (id INTEGER PRIMARY KEY, Descricao TEXT NOT NULL)";
+        String sql = "CREATE TABLE TipoPessoa (id INTEGER PRIMARY KEY, descricao TEXT NOT NULL)";
         db.execSQL(sql);
     }
 
@@ -31,17 +31,17 @@ public class TipoPessoaDAO extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    public void InsertTipoPessoa(TipoPessoa tipoPessoa){
+    public Long InsertTipoPessoa(TipoPessoa tipoPessoa){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues dados = GetTipoPessoaContentValues(tipoPessoa);
 
-        db.insert("TipoPessoa", null, dados);
+        return db.insert("TipoPessoa", null, dados);
     }
 
     private ContentValues GetTipoPessoaContentValues(TipoPessoa tipoPessoa) {
         ContentValues dados = new ContentValues();
-        dados.put("Id", tipoPessoa.getId());
-        dados.put("Descricao", tipoPessoa.getDescricao());
+        dados.put("id", tipoPessoa.getId());
+        dados.put("descricao", tipoPessoa.getDescricao());
         return dados;
     }
 
@@ -53,6 +53,14 @@ public class TipoPessoaDAO extends SQLiteOpenHelper {
 
     public TipoPessoa GetTipoPessoaById(long idTipoPessoa) {
         String sql = "SELECT * FROM TipoPessoa WHERE id = " + idTipoPessoa;
+        SQLiteDatabase db = getReadableDatabase();
+        TipoPessoa tipoPessoa = (TipoPessoa) db.rawQuery(sql, null);
+
+        return tipoPessoa;
+    }
+
+    public TipoPessoa GetTipoPessoa(String descricao) {
+        String sql = "SELECT * FROM TipoPessoa WHERE descricao = " + descricao + "LIMIT 1 ";
         SQLiteDatabase db = getReadableDatabase();
         TipoPessoa tipoPessoa = (TipoPessoa) db.rawQuery(sql, null);
 

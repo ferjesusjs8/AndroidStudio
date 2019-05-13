@@ -1,9 +1,11 @@
 package com.anhanguera.DesafioProfissionalV.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.anhanguera.DesafioProfissionalV.Model.Empresa;
 import com.anhanguera.DesafioProfissionalV.Model.Endereco;
 
 public class EnderecoDAO extends SQLiteOpenHelper {
@@ -30,5 +32,22 @@ public class EnderecoDAO extends SQLiteOpenHelper {
         Endereco endereco = (Endereco) db.rawQuery(sql, null);
 
         return endereco;
+    }
+
+    public void InsertEndereco(Endereco endereco){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues dados = GetEnderecoContentValues(endereco);
+
+        db.insert("Endereco", null, dados);
+    }
+
+    private ContentValues GetEnderecoContentValues(Endereco endereco) {
+        ContentValues dados = new ContentValues();
+        dados.put("bairro", endereco.getBairro());
+        dados.put("cep", endereco.getCEP());
+        dados.put("cidade", endereco.getCidade());
+        dados.put("estado", endereco.getEstado());
+        dados.put("logradouro", endereco.getLogradouro());
+        return dados;
     }
 }

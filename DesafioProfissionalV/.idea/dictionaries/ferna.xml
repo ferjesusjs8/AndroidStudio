@@ -1,13 +1,22 @@
 <component name="ProjectDictionaryState">
   <dictionary name="ferna">
     <words>
+      <w>adicionar</w>
+      <w>anhanguera</w>
       <w>bairro</w>
+      <w>carrega</w>
       <w>cidade</w>
+      <w>clicado</w>
       <w>clicou</w>
       <w>cnpj</w>
       <w>comprador</w>
       <w>dados</w>
+      <w>deletada</w>
+      <w>deletado</w>
+      <w>deletar</w>
+      <w>desafio</w>
       <w>descricao</w>
+      <w>editado</w>
       <w>emissao</w>
       <w>empresa</w>
       <w>empresas</w>
@@ -19,6 +28,7 @@
       <w>formulário</w>
       <w>forumlario</w>
       <w>impostos</w>
+      <w>lista</w>
       <w>logradouro</w>
       <w>nascimento</w>
       <w>nota</w>
@@ -26,16 +36,22 @@
       <w>numero</w>
       <w>obra</w>
       <w>obras</w>
+      <w>pesso</w>
       <w>pessoa</w>
       <w>pessoas</w>
+      <w>posicao</w>
+      <w>preencher</w>
+      <w>profissional</w>
       <w>quantidade</w>
       <w>razao</w>
       <w>searchs</w>
       <w>serie</w>
       <w>servico</w>
       <w>serviços</w>
+      <w>sucesso</w>
       <w>telefone</w>
       <w>tipo</w>
+      <w>visualizar</w>
     </words>
   </dictionary>
 </component>

@@ -6,10 +6,14 @@ public class Pessoa implements Serializable {
     private Long id;
     private String nome;
     private String CPF;
-    public Endereco Endereco;
+    private String tipoPessoa;
     private String telefone;
     private String dataNascimento;
-    public TipoPessoa TipoPessoa;
+    private String CEP;
+    private String bairro;
+    private String cidade;
+    private String logradouro;
+    private String estado;
 
     public Long getId() {
         return id;
@@ -35,12 +39,12 @@ public class Pessoa implements Serializable {
         this.CPF = CPF;
     }
 
-    public Endereco getEnderecoPessoa() {
-        return Endereco;
+    public String getTipoPessoa() {
+        return tipoPessoa;
     }
 
-    public void setEnderecoPessoa(Endereco enderecoPessoa) {
-        this.Endereco = enderecoPessoa;
+    public void setTipoPessoa(String tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 
     public String getTelefone() {
@@ -59,11 +63,48 @@ public class Pessoa implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public TipoPessoa getTipoPessoa() {
-        return TipoPessoa;
+    public String getCEP() {
+        return CEP;
     }
 
-    public void setTipoPessoa(TipoPessoa tipoPessoa) {
-        this.TipoPessoa = tipoPessoa;
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return this.id + " - " + this.nome;
     }
 }

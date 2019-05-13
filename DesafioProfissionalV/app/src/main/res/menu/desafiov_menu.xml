@@ -26,6 +26,17 @@
         android:id="@+id/searchs"
         android:icon="@drawable/ic_search_menu"
         android:title="searchs"
-        app:showAsAction="ifRoom"></item>
+        app:showAsAction="ifRoom">
+
+        <menu>
+
+            <item
+                android:id="@+id/pessoa_search"
+                android:title="Visualizar Pessoas"/>
+
+        </menu>
+    </item>
+
+
 
 </menu>

@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.anhanguera.DesafioProfissionalV.Model.Empresa;
-import com.anhanguera.DesafioProfissionalV.Model.Endereco;
 import com.anhanguera.DesafioProfissionalV.Model.Pessoa;
 
 import java.util.ArrayList;
@@ -17,13 +15,13 @@ public class PessoaDAO extends SQLiteOpenHelper {
     private Context context;
 
     public PessoaDAO(Context context) {
-        super(context, "Empresa", null, 1);
+        super(context, "Empresa", null, 2);
         this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Pessoa (Id INTEGER PRIMARY KEY, Nome TEXT NOT NULL, CPF TEXT, IdEndereco LONG NOT NULL, Telefone TEXT, DataNascimento TEXT, IdTipoPessoa LONG NOT NULL)";
+        String sql = "CREATE TABLE Pessoa (Id INTEGER PRIMARY KEY, Nome TEXT NOT NULL, CPF TEXT, TipoPessoa TEXT NOT NULL, Telefone TEXT, DataNascimento TEXT, CEP TEXT NOT NULL, Bairro TEXT, Cidade TEXT, Logradouro TEXT, Estado TEXT)";
         db.execSQL(sql);
     }
 
@@ -43,13 +41,16 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
     private ContentValues GetPessoaContentValues(Pessoa pessoa) {
         ContentValues dados = new ContentValues();
-        dados.put("Id", pessoa.getId());
         dados.put("CPF", pessoa.getCPF());
-        dados.put("DataNascimento", pessoa.getDataNascimento());
-        dados.put("Nome", pessoa.getNome());
-        dados.put("Telefone", pessoa.getTelefone());
-        dados.put("IdEndereco", pessoa.Endereco.getId());
-        dados.put("IdTipoPessoa", pessoa.TipoPessoa.getId());
+        dados.put("dataNascimento", pessoa.getDataNascimento());
+        dados.put("nome", pessoa.getNome());
+        dados.put("telefone", pessoa.getTelefone());
+        dados.put("tipoPessoa", pessoa.getTipoPessoa());
+        dados.put("bairro", pessoa.getBairro());
+        dados.put("CEP", pessoa.getCEP());
+        dados.put("cidade", pessoa.getCidade());
+        dados.put("estado", pessoa.getEstado());
+        dados.put("logradouro", pessoa.getLogradouro());
         return dados;
     }
 
@@ -57,8 +58,6 @@ public class PessoaDAO extends SQLiteOpenHelper {
         String sql = "SELECT * FROM Pessoa";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
-        EnderecoDAO enderecoDAO = new EnderecoDAO(context);
-        TipoPessoaDAO tipoPessoaDAO = new TipoPessoaDAO(context);
 
         List<Pessoa> pessoas = new ArrayList<>();
 
@@ -68,8 +67,13 @@ public class PessoaDAO extends SQLiteOpenHelper {
             pessoa.setId(cursor.getLong(cursor.getColumnIndex("Id")));
             pessoa.setDataNascimento(cursor.getString(cursor.getColumnIndex("DataNascimento")));
             pessoa.setNome(cursor.getString(cursor.getColumnIndex("Nome")));
-            pessoa.setEnderecoPessoa(enderecoDAO.getEnderecoById(cursor.getLong(cursor.getColumnIndex("IdEndereco"))));
-            pessoa.setTipoPessoa(tipoPessoaDAO.GetTipoPessoaById(cursor.getLong(cursor.getColumnIndex("IdTipoPessoa"))));
+            pessoa.setTelefone(cursor.getString(cursor.getColumnIndex("Telefone")));
+            pessoa.setBairro(cursor.getString(cursor.getColumnIndex("Bairro")));
+            pessoa.setCEP(cursor.getString(cursor.getColumnIndex("CEP")));
+            pessoa.setCidade(cursor.getString(cursor.getColumnIndex("Cidade")));
+            pessoa.setEstado(cursor.getString(cursor.getColumnIndex("Estado")));
+            pessoa.setLogradouro(cursor.getString(cursor.getColumnIndex("Logradouro")));
+            pessoa.setTipoPessoa(cursor.getString(cursor.getColumnIndex("TipoPessoa")));
             pessoas.add(pessoa);
         }
 
