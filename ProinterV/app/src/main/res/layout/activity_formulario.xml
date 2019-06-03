@@ -32,7 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:id="@+id/formulario_site"/>
+            android:id="@+id/formulario_email"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Posts"
+            android:id="@+id/formulario_posts"/>
 
         <RatingBar
             android:layout_width="wrap_content"

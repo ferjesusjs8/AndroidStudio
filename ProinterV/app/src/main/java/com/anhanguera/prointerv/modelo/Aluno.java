@@ -7,8 +7,9 @@ public class Aluno implements Serializable {
     private String nome;
     private String endereco;
     private String telefone;
-    private String site;
+    private String email;
     private Double nota;
+    private Long posts;
 
     public String getNome() {
         return nome;
@@ -34,12 +35,12 @@ public class Aluno implements Serializable {
         this.telefone = telefone;
     }
 
-    public String getSite() {
-        return site;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSite(String site) {
-        this.site = site;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Double getNota() {
@@ -61,5 +62,13 @@ public class Aluno implements Serializable {
     @Override
     public String toString() {
         return getId() + " - " + getNome();
+    }
+
+    public Long getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Long posts) {
+        this.posts = posts;
     }
 }

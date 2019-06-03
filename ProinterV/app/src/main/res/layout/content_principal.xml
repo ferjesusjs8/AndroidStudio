@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".PrincipalActivity"
+    tools:showIn="@layout/app_bar_principal">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        app:srcCompat="@mipmap/ic_launcher_anhaguera_logo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:paddingTop="20dp"
+        android:text="PROINTER V"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp"
+        android:text="Disciplinas Norteadoras: ENGENHARIA DE SOFTWARE E GERÊNCIA DE PROJETO; LINGUAGEM PARA ORGANIZAÇÃO E TRANSFERÊNCIA DE DADOS PARA WEB; DESENVOLVIMENTO DE SOFTWARE SEGURO; PROGRAMAÇÃO EM DISPOSITIVOS MÓVEIS; REDES DE COMPUTADORES;"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:paddingTop="10dp"
+        android:text="Amanda Jeniffer Pereira de Almeida Cabrera                                                                                                            RA FSO3459210222"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:paddingTop="10dp"
+        android:text="Fernando de Jesus dos Santos                                                                                                                                                        RA FSO8798003993"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:paddingTop="10dp"
+        android:text="Lucas Henrique Pereira Domingues                                                                                                                                                                             RA FSO8798013472"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="8dp"
+        android:paddingTop="10dp"
+        android:text="Luiz Eduardo de Campos Aragão                                                                                                                                                              RA FSO2083625109"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+</android.support.constraint.ConstraintLayout>

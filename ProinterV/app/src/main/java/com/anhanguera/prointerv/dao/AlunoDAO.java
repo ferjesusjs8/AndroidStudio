@@ -15,12 +15,12 @@ import java.util.List;
 public class AlunoDAO extends SQLiteOpenHelper {
 
     public AlunoDAO(Context context) {
-        super(context, "Agenda", null, 1);
+        super(context, "Aluno", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, endereco TEXT, telefone TEXT, site TEXT, nota REAL);";
+        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, endereco TEXT, telefone TEXT, email TEXT, nota REAL, posts INTEGER);";
         db.execSQL(sql);
     }
 
@@ -43,7 +43,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
         dados.put("nome", aluno.getNome());
         dados.put("endereco", aluno.getEndereco());
         dados.put("telefone", aluno.getTelefone());
-        dados.put("site", aluno.getSite());
+        dados.put("email", aluno.getEmail());
         dados.put("nota", aluno.getNota());
         return dados;
     }
@@ -58,9 +58,10 @@ public class AlunoDAO extends SQLiteOpenHelper {
         while(cursor.moveToNext()){
             Aluno aluno = new Aluno();
             aluno.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+            aluno.setPosts(cursor.getLong(cursor.getColumnIndex("posts")));
             aluno.setEndereco(cursor.getString(cursor.getColumnIndex("endereco")));
             aluno.setTelefone(cursor.getString(cursor.getColumnIndex("telefone")));
-            aluno.setSite(cursor.getString(cursor.getColumnIndex("site")));
+            aluno.setEmail(cursor.getString(cursor.getColumnIndex("email")));
             aluno.setNota(cursor.getDouble(cursor.getColumnIndex("nota")));
             aluno.setId(cursor.getLong(cursor.getColumnIndex("id")));
             alunos.add(aluno);

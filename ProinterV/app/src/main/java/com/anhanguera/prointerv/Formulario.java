@@ -45,11 +45,15 @@ public class Formulario extends AppCompatActivity {
                 AlunoDAO alunoDAO = new AlunoDAO(this);
 
                 if (aluno.getId() != null){
+
                     alunoDAO.EditAluno(aluno);
                     Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " editado com sucesso!", Toast.LENGTH_SHORT).show();
+
                 } else {
+
                     alunoDAO.Insere(aluno);
                     Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " salvo com sucesso!", Toast.LENGTH_SHORT).show();
+
                 }
 
                 alunoDAO.close();
