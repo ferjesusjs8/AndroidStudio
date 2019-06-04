@@ -1,8 +1,13 @@
 package com.anhanguera.prointerv;
 
 import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +22,8 @@ import com.anhanguera.prointerv.modelo.Aluno;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     private ListView listaAluno;
 
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbars = findViewById(R.id.toolbars);
 
         listaAluno = findViewById(R.id.lista_alunos);
 
@@ -49,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         registerForContextMenu(listaAluno);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_main);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbars, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     private void carregaLista() {
@@ -83,5 +98,22 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_alunos) {
+            Intent intentNovoAluno = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intentNovoAluno);
+        } else if (id == R.id.nav_grupos) {
+
+        } else if (id == R.id.nav_publicacoes) {
+
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
