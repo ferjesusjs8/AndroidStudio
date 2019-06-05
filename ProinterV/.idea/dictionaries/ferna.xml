@@ -6,6 +6,7 @@
       <w>alunos</w>
       <w>anhaguera</w>
       <w>anhanguera</w>
+      <w>autor</w>
       <w>carrega</w>
       <w>clicado</w>
       <w>confirmar</w>
@@ -19,6 +20,7 @@
       <w>erro</w>
       <w>forma</w>
       <w>formulario</w>
+      <w>grupo</w>
       <w>grupos</w>
       <w>insere</w>
       <w>jeferson</w>
@@ -29,11 +31,15 @@
       <w>posicao</w>
       <w>preencher</w>
       <w>prointer</w>
+      <w>prointerv</w>
+      <w>publicacao</w>
       <w>publicacoes</w>
       <w>publicações</w>
       <w>ronaldo</w>
       <w>sucesso</w>
       <w>telefone</w>
+      <w>texto</w>
+      <w>titulo</w>
     </words>
   </dictionary>
 </component>

@@ -1,4 +1,4 @@
-package com.anhanguera.prointerv.modelo;
+package com.anhanguera.prointerv.MODEL;
 
 import java.io.Serializable;
 
@@ -9,7 +9,6 @@ public class Aluno implements Serializable {
     private String telefone;
     private String email;
     private Double nota;
-    private Long posts;
 
     public String getNome() {
         return nome;
@@ -62,13 +61,5 @@ public class Aluno implements Serializable {
     @Override
     public String toString() {
         return getId() + " - " + getNome();
-    }
-
-    public Long getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Long posts) {
-        this.posts = posts;
     }
 }

@@ -1,12 +1,13 @@
-package com.anhanguera.prointerv;
+package com.anhanguera.prointerv.HELPERS;
 
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
-import com.anhanguera.prointerv.modelo.Aluno;
+import com.anhanguera.prointerv.ACTIVITY.FormularioAlunoActivity;
+import com.anhanguera.prointerv.MODEL.Aluno;
+import com.anhanguera.prointerv.R;
 
-public class FormularioActivityHelper {
+public class FormularioAlunoActivityHelper {
     private RatingBar rating;
     private EditText email;
     private EditText telefone;
@@ -15,13 +16,12 @@ public class FormularioActivityHelper {
     private EditText posts;
     private Aluno aluno;
 
-    public FormularioActivityHelper(Formulario activity) {
-        nome = activity.findViewById(R.id.formulario_nome);
-        endereco = activity.findViewById(R.id.formulario_endereco);
-        telefone = activity.findViewById(R.id.formulario_telefone);
-        email = activity.findViewById(R.id.formulario_email);
-        rating = activity.findViewById(R.id.formulario_ratingBar);
-        posts = activity.findViewById(R.id.formulario_posts);
+    public FormularioAlunoActivityHelper(FormularioAlunoActivity activity) {
+        nome = activity.findViewById(R.id.aluno_nome);
+        endereco = activity.findViewById(R.id.aluno_endereco);
+        telefone = activity.findViewById(R.id.aluno_telefone);
+        email = activity.findViewById(R.id.aluno_email);
+        rating = activity.findViewById(R.id.aluno_ratingBar);
         aluno = new Aluno();
     }
 
@@ -31,10 +31,8 @@ public class FormularioActivityHelper {
         aluno.setTelefone(telefone.getText().toString());
         aluno.setEmail(email.getText().toString());
         aluno.setNota(Double.valueOf(rating.getProgress()));
-        aluno.setPosts(Long.parseLong(posts.getText().toString()));
         return aluno;
     }
-
 
     public void PreencherFormulario(Aluno aluno) {
         nome.setText(aluno.getNome());
@@ -42,7 +40,6 @@ public class FormularioActivityHelper {
         telefone.setText(aluno.getTelefone());
         email.setText(aluno.getEmail());
         rating.setProgress(aluno.getNota().intValue());
-        posts.setText(aluno.getPosts().toString());
         this.aluno = aluno;
     }
 }

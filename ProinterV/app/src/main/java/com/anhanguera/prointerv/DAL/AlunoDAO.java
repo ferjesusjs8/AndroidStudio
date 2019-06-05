@@ -1,13 +1,12 @@
-package com.anhanguera.prointerv.dao;
+package com.anhanguera.prointerv.DAL;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.view.View;
 
-import com.anhanguera.prointerv.modelo.Aluno;
+import com.anhanguera.prointerv.MODEL.Aluno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,22 +19,22 @@ public class AlunoDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, endereco TEXT, telefone TEXT, email TEXT, nota REAL, posts INTEGER);";
+        String sql = "CREATE TABLE Aluno (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, endereco TEXT, telefone TEXT, email TEXT, nota REAL, posts INTEGER);";
         db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS Alunos";
+        String sql = "DROP TABLE IF EXISTS Aluno";
         db.execSQL(sql);
         onCreate(db);
     }
 
-    public void Insere(Aluno aluno) {
+    public void Insert(Aluno aluno) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues dados = GetAlunoContentValues(aluno);
 
-        db.insert("Alunos", null, dados);
+        db.insert("Aluno", null, dados);
     }
 
     private ContentValues GetAlunoContentValues(Aluno aluno) {
@@ -49,7 +48,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
     }
 
     public List<Aluno> GetAlunos() {
-        String sql = "SELECT * FROM Alunos";
+        String sql = "SELECT * FROM Aluno";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -58,7 +57,6 @@ public class AlunoDAO extends SQLiteOpenHelper {
         while(cursor.moveToNext()){
             Aluno aluno = new Aluno();
             aluno.setNome(cursor.getString(cursor.getColumnIndex("nome")));
-            aluno.setPosts(cursor.getLong(cursor.getColumnIndex("posts")));
             aluno.setEndereco(cursor.getString(cursor.getColumnIndex("endereco")));
             aluno.setTelefone(cursor.getString(cursor.getColumnIndex("telefone")));
             aluno.setEmail(cursor.getString(cursor.getColumnIndex("email")));
@@ -75,7 +73,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
     public void Delete(Aluno aluno) {
         SQLiteDatabase db = getReadableDatabase();
         String[] params = {aluno.getId().toString()};
-        db.delete("Alunos", "id = ?", params);
+        db.delete("Aluno", "id = ?", params);
     }
 
     public void EditAluno(Aluno aluno) {
@@ -85,7 +83,6 @@ public class AlunoDAO extends SQLiteOpenHelper {
 
         String[] params = {aluno.getId().toString()};
 
-        db.update("Alunos", dados, "id = ?", params);
-
+        db.update("Aluno", dados, "id = ?", params);
     }
 }

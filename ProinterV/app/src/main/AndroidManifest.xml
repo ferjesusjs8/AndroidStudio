@@ -10,7 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PrincipalActivity"
+            android:name=".ACTIVITY.PublicacoesActivity"
+            android:label="@string/title_activity_publicacoes"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ACTIVITY.GruposActivity"
+            android:label="@string/title_activity_grupos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ACTIVITY.MainActivity"
             android:label="@string/title_activity_principal"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,10 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Formulario" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".ACTIVITY.FormularioAlunoActivity" />
+        <activity android:name=".ACTIVITY.AlunoActivity" />
     </application>
 
 </manifest>

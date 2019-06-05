@@ -1,4 +1,4 @@
-package com.anhanguera.prointerv;
+package com.anhanguera.prointerv.ACTIVITY;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,18 +8,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.anhanguera.prointerv.dao.AlunoDAO;
-import com.anhanguera.prointerv.modelo.Aluno;
+import com.anhanguera.prointerv.DAL.AlunoDAO;
+import com.anhanguera.prointerv.HELPERS.FormularioAlunoActivityHelper;
+import com.anhanguera.prointerv.MODEL.Aluno;
+import com.anhanguera.prointerv.R;
 
-public class Formulario extends AppCompatActivity {
+public class FormularioAlunoActivity extends AppCompatActivity {
 
-    private FormularioActivityHelper helper;
+    private FormularioAlunoActivityHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario);
-        helper = new FormularioActivityHelper(this);
+        setContentView(R.layout.activity_formulario_aluno);
+        helper = new FormularioAlunoActivityHelper(this);
 
         Intent intent = getIntent();
         Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
@@ -31,7 +33,7 @@ public class Formulario extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_formulario, menu);
+        inflater.inflate(R.menu.menu_aluno, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -47,12 +49,12 @@ public class Formulario extends AppCompatActivity {
                 if (aluno.getId() != null){
 
                     alunoDAO.EditAluno(aluno);
-                    Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " editado com sucesso!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormularioAlunoActivity.this, "Aluno " + aluno.getNome() + " editado com sucesso!", Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    alunoDAO.Insere(aluno);
-                    Toast.makeText(Formulario.this, "Aluno " + aluno.getNome() + " salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                    alunoDAO.Insert(aluno);
+                    Toast.makeText(FormularioAlunoActivity.this, "Aluno " + aluno.getNome() + " salvo com sucesso!", Toast.LENGTH_SHORT).show();
 
                 }
 

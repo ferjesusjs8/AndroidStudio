@@ -11,4 +11,7 @@
     <string name="menu_alunos">Alunos</string>
     <string name="menu_grupos">Grupos</string>
     <string name="menu_publicacoes">Publicações</string>
+    <string name="Home">Home</string>
+    <string name="title_activity_grupos">GruposActivity</string>
+    <string name="title_activity_publicacoes">PublicacoesActivity</string>
 </resources>

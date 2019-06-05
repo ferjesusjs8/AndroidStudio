@@ -1,10 +1,7 @@
-package com.anhanguera.prointerv;
+package com.anhanguera.prointerv.ACTIVITY;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -15,13 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
-public class PrincipalActivity extends AppCompatActivity
+import com.anhanguera.prointerv.R;
+
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_principal);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,7 +46,7 @@ public class PrincipalActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.principal, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -66,12 +65,17 @@ public class PrincipalActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_alunos) {
-            Intent intentNovoAluno = new Intent(PrincipalActivity.this, MainActivity.class);
+            Intent intentNovoAluno = new Intent(MainActivity.this, AlunoActivity.class);
             startActivity(intentNovoAluno);
         } else if (id == R.id.nav_grupos) {
-
+            Intent grupos = new Intent(MainActivity.this, GruposActivity.class);
+            startActivity(grupos);
         } else if (id == R.id.nav_publicacoes) {
-
+            Intent publicacoes = new Intent(MainActivity.this, PublicacoesActivity.class);
+            startActivity(publicacoes);
+        } else if (id == R.id.nav_home) {
+            Intent home = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(home);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -7,38 +7,31 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome"
-            android:id="@+id/formulario_nome"/>
+            android:id="@+id/aluno_nome"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Endereço"
-            android:id="@+id/formulario_endereco"/>
+            android:id="@+id/aluno_endereco"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"
-            android:id="@+id/formulario_telefone"/>
+            android:id="@+id/aluno_telefone"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:id="@+id/formulario_email"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Posts"
-            android:id="@+id/formulario_posts"/>
+            android:id="@+id/aluno_email"/>
 
         <RatingBar
             android:layout_width="wrap_content"
@@ -46,7 +39,7 @@
             android:max="10"
             android:numStars="5"
             android:layout_gravity="center"
-            android:id="@+id/formulario_ratingBar"/>
+            android:id="@+id/aluno_ratingBar"/>
 
     </LinearLayout>
 </ScrollView>
