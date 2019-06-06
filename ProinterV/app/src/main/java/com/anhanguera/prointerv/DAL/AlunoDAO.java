@@ -14,12 +14,12 @@ import java.util.List;
 public class AlunoDAO extends SQLiteOpenHelper {
 
     public AlunoDAO(Context context) {
-        super(context, "Aluno", null, 2);
+        super(context, "Aluno", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Aluno (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, endereco TEXT, telefone TEXT, email TEXT, nota REAL, posts INTEGER);";
+        String sql = "CREATE TABLE Aluno (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, curso TEXT, ra TEXT, email TEXT, nota REAL);";
         db.execSQL(sql);
     }
 
@@ -40,8 +40,8 @@ public class AlunoDAO extends SQLiteOpenHelper {
     private ContentValues GetAlunoContentValues(Aluno aluno) {
         ContentValues dados = new ContentValues();
         dados.put("nome", aluno.getNome());
-        dados.put("endereco", aluno.getEndereco());
-        dados.put("telefone", aluno.getTelefone());
+        dados.put("ra", aluno.getRa());
+        dados.put("curso", aluno.getCurso());
         dados.put("email", aluno.getEmail());
         dados.put("nota", aluno.getNota());
         return dados;
@@ -57,8 +57,8 @@ public class AlunoDAO extends SQLiteOpenHelper {
         while(cursor.moveToNext()){
             Aluno aluno = new Aluno();
             aluno.setNome(cursor.getString(cursor.getColumnIndex("nome")));
-            aluno.setEndereco(cursor.getString(cursor.getColumnIndex("endereco")));
-            aluno.setTelefone(cursor.getString(cursor.getColumnIndex("telefone")));
+            aluno.setRa(cursor.getString(cursor.getColumnIndex("ra")));
+            aluno.setCurso(cursor.getString(cursor.getColumnIndex("curso")));
             aluno.setEmail(cursor.getString(cursor.getColumnIndex("email")));
             aluno.setNota(cursor.getDouble(cursor.getColumnIndex("nota")));
             aluno.setId(cursor.getLong(cursor.getColumnIndex("id")));
@@ -84,5 +84,25 @@ public class AlunoDAO extends SQLiteOpenHelper {
         String[] params = {aluno.getId().toString()};
 
         db.update("Aluno", dados, "id = ?", params);
+    }
+
+    public Aluno GetAlunoByNome(String nome){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query("Grupo", new String[] {"rowid","*"},"nome LIKE '?'", new String[]{nome+"%"}, null, null, null);
+
+        Aluno aluno = new Aluno();
+
+        while(cursor.moveToNext()){
+            aluno.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+            aluno.setRa(cursor.getString(cursor.getColumnIndex("endereco")));
+            aluno.setCurso(cursor.getString(cursor.getColumnIndex("telefone")));
+            aluno.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+            aluno.setNota(cursor.getDouble(cursor.getColumnIndex("nota")));
+            aluno.setId(cursor.getLong(cursor.getColumnIndex("id")));
+        }
+
+        cursor.close();
+
+        return aluno;
     }
 }

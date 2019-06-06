@@ -8,38 +8,37 @@ import com.anhanguera.prointerv.MODEL.Aluno;
 import com.anhanguera.prointerv.R;
 
 public class FormularioAlunoActivityHelper {
-    private RatingBar rating;
+    private RatingBar nota;
     private EditText email;
-    private EditText telefone;
-    private EditText endereco;
+    private EditText curso;
+    private EditText ra;
     private EditText nome;
-    private EditText posts;
     private Aluno aluno;
 
     public FormularioAlunoActivityHelper(FormularioAlunoActivity activity) {
         nome = activity.findViewById(R.id.aluno_nome);
-        endereco = activity.findViewById(R.id.aluno_endereco);
-        telefone = activity.findViewById(R.id.aluno_telefone);
+        ra = activity.findViewById(R.id.aluno_ra);
+        curso = activity.findViewById(R.id.aluno_curso);
         email = activity.findViewById(R.id.aluno_email);
-        rating = activity.findViewById(R.id.aluno_ratingBar);
+        nota = activity.findViewById(R.id.aluno_nota);
         aluno = new Aluno();
     }
 
     public Aluno GetAluno(){
         aluno.setNome(nome.getText().toString());
-        aluno.setEndereco(endereco.getText().toString());
-        aluno.setTelefone(telefone.getText().toString());
+        aluno.setRa(ra.getText().toString());
+        aluno.setCurso(curso.getText().toString());
         aluno.setEmail(email.getText().toString());
-        aluno.setNota(Double.valueOf(rating.getProgress()));
+        aluno.setNota(Double.valueOf(nota.getProgress()));
         return aluno;
     }
 
     public void PreencherFormulario(Aluno aluno) {
         nome.setText(aluno.getNome());
-        endereco.setText(aluno.getEndereco());
-        telefone.setText(aluno.getTelefone());
+        ra.setText(aluno.getRa());
+        curso.setText(aluno.getCurso());
         email.setText(aluno.getEmail());
-        rating.setProgress(aluno.getNota().intValue());
+        nota.setProgress(aluno.getNota().intValue());
         this.aluno = aluno;
     }
 }

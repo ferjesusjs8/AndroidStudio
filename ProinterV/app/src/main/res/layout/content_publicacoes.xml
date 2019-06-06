@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ACTIVITY.PublicacoesActivity"
-    tools:showIn="@layout/activity_publicacoes">
+    tools:context=".ACTIVITY.PublicacaoActivity"
+    tools:showIn="@layout/activity_publicacao">
 
 </android.support.constraint.ConstraintLayout>

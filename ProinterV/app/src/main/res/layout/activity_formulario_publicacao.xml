@@ -12,34 +12,20 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome"
-            android:id="@+id/aluno_nome"/>
+            android:hint="Autor"
+            android:id="@+id/publicacao_autor"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="RA"
-            android:id="@+id/aluno_ra"/>
+            android:hint="Titulo"
+            android:id="@+id/publicacao_titulo"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Curso"
-            android:id="@+id/aluno_curso"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:id="@+id/aluno_email"/>
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="47dp"
-            android:max="10"
-            android:numStars="5"
-            android:layout_gravity="center"
-            android:id="@+id/aluno_nota"/>
+            android:hint="Texto"
+            android:id="@+id/publicacao_texto"/>
 
     </LinearLayout>
 </ScrollView>

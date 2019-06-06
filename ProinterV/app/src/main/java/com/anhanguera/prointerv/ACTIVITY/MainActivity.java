@@ -68,10 +68,10 @@ public class MainActivity extends AppCompatActivity
             Intent intentNovoAluno = new Intent(MainActivity.this, AlunoActivity.class);
             startActivity(intentNovoAluno);
         } else if (id == R.id.nav_grupos) {
-            Intent grupos = new Intent(MainActivity.this, GruposActivity.class);
+            Intent grupos = new Intent(MainActivity.this, GrupoActivity.class);
             startActivity(grupos);
         } else if (id == R.id.nav_publicacoes) {
-            Intent publicacoes = new Intent(MainActivity.this, PublicacoesActivity.class);
+            Intent publicacoes = new Intent(MainActivity.this, PublicacaoActivity.class);
             startActivity(publicacoes);
         } else if (id == R.id.nav_home) {
             Intent home = new Intent(MainActivity.this, MainActivity.class);

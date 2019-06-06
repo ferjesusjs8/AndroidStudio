@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Aluno implements Serializable {
     private Long id;
     private String nome;
-    private String endereco;
-    private String telefone;
+    private String ra;
+    private String curso;
     private String email;
     private Double nota;
 
@@ -18,20 +18,20 @@ public class Aluno implements Serializable {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRa() {
+        return ra;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRa(String ra) {
+        this.ra = ra;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getCurso() {
+        return curso;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setCurso(String curso) {
+        this.curso = curso;
     }
 
     public String getEmail() {

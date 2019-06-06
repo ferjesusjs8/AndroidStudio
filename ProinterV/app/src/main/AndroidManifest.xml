@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ACTIVITY.FormularioPublicacaoActivity"></activity>
+        <activity android:name=".ACTIVITY.FormularioGrupoActivity" />
         <activity
-            android:name=".ACTIVITY.PublicacoesActivity"
+            android:name=".ACTIVITY.PublicacaoActivity"
             android:label="@string/title_activity_publicacoes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ACTIVITY.GruposActivity"
+            android:name=".ACTIVITY.GrupoActivity"
             android:label="@string/title_activity_grupos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
